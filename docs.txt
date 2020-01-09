@@ -1,0 +1,98 @@
+a.buat direktory project
+mkdir namafolder
+cd namafolder
+
+b.buat virtualenv
+python3 -m venv env
+
+c.aktifkan virtualenv
+source env/bin/activate
+
+d.instal django
+python -m pip install --upgrade pip
+
+e.instal paket pakai requirements
+touch requirements.txt
+
+f.instal django
+pip install Django==3.0.2
+
+g.masukkan instalan ke requirements
+pip freeze > requirements.txt
+
+h.cara install dari requirements.txt
+pip install -r requirements.txt
+
+i.buat project django
+django-admin startproject rizqiadiputra .
+
+j.ubah settings
+ rizqiadiputra/settings.py
+TIME_ZONE = 'Asia/Jakarta'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+ALLOWED_HOSTS = [127.0.0.1]
+
+k.buat database sqlite
+python manage.py migrate
+
+l.hidupkan web server
+python manage.py runserver
+
+m.buka http://127.0.0.1
+
+n.masuk ke http://127.0.0.1:8000/admin
+
+o.buat app
+python manage.py startapp blog
+
+p.ubah di settings
+pada INSTALLED_APPS, tambah 'blog.apps.BlogConfig'
+
+q.buat sebuah blog post model
+
+r.tambahkan model kedalam database, step awal kita kasih tau ke django bahwa ada perubahan
+python manage.py makemigrations blog
+
+s.apply ke database
+python manage.py migrate blog
+
+t.untuk mengelola web, kita gunakan django admin
+
+u.buat superuser untuk mengontrol web
+python manage.py createsuperuser
+
+v. Deploy
+Deploying is the process of publishing your application on the Internet so people can finally go and see your app. website has to be located on a server
+
+w.Git
+Git is a "version control system" used by a lot of programmers. This software can track changes to files over time so that you can recall specific versions later.
+
+x. Install Git
+Download Git from git-scm.com and follow the instructions.
+
+y. mulai repositori git kita
+masuk ke direktori rizqiadiputra
+git init 
+git config --global user.name "Your Name"
+git config --global user.email you@example.com
+
+z. file yang perlu di ignore agar tidak masuk di git
+buat file .gitignore
+touch .gitignore
+nano .gitignore
+isi: 
+*.pyc
+*~
+/.vscode
+__pycache__
+myvenv
+db.sqlite3
+/static
+.DS_Store
+
+a. cek status git
+git status
+
+b.simpan perubahan
+git add --all .
+git commit -m "My Django rizqiadiputra App, first commit"
