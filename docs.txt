@@ -113,9 +113,19 @@ def daftar_post(request):
 
 b.template
 sebuah template merupakan file yang bisa digunakan untuk menampilkan informasi, django template menggunakan bahasa html
+-buat file template di blog
+-buat folder templates didalam folder blog
+-buat folder blog didalam templates
+-buat file daftar_post.html didalam folder blog
+-isi daftar_post.html
+<html>
+<body>
+    <p>Hi there!</p>
+    <p>It works!</p>
+</body>
+</html>
 
-
-a. django urls
+c. django urls
 url merupakan alamat web, setiap halaman web membutuhkan alamat masing",django menggunakan URLconf untuk set pola url.
 menambahkan url blog:
 -buat file urls.py di blog
@@ -126,4 +136,7 @@ menambahkan url blog:
 -tambahkan ini di blog.urls
 from django.urls import path
 from . import views
+urlpatterns = [
+    path('', views.daftar_post, name='daftar_post'),
+]
 -
