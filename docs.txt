@@ -139,4 +139,71 @@ from . import views
 urlpatterns = [
     path('', views.daftar_post, name='daftar_post'),
 ]
--
+
+d. django ORM dan QuerySet
+koneksi database di django
+-QuerySet
+merupakan sebuah daftar obyek yang diberikan oleh model, dengan QuerySet kita dapat baca data dari database, filter, dan order
+-Django Shell
+kita tes query menggunakan console dengan cara, python manage.py shell
+--all objects (menampilkan semua data) dengan cara
+#import terlebih dahulu
+    from blog.models import Post (kita import model Post dari blog.models)
+#tampilkan data
+    Post.objects.all()
+--buat objek baru
+#kita coba mengambil penulisnya adalah rizqi, kita akan membuat sebuah sebuah instance dari User model sebagai penulis
+#import User model
+from django.contrib.auth.models import User
+User.objects.all()
+rizqi = User.objects.get(username='root')
+#root merupakan superuser yang telah kita buat diawal
+#kemudian kita buat objek barunya
+Post.objects.create(penulis=rizqi, judul='contoh', isi='test')
+--filter objects
+Post.objects.filter(penulis=rizqi)
+Post.objects.filter(judul__contains='contoh')
+
+--filter berdasarkan waktu
+from django.utils import timezone
+Post.objects.filter(tgl_terbit__lte=timezone.now())
+
+--publish objects
+post = Post.objects.get(judul='contoh')
+#method terbit
+post.terbit()
+
+--ordering objects
+order list objects
+#asecending
+Post.objects.order_by('tgl_buat')
+#descending
+Post.objects.order_by('-tgl_buat')
+
+--kombinasi filter
+Post.objects.filter(tgl_terbit__lte=timezone.now()).order_by('tgl_terbit')
+
+--keluar dari django shell
+exit()
+
+e. dynamic data in templates
+menghubungkan model dengan templates
+-buka blog/views.py
+from django.shortcuts import render
+
+def post_list(request):
+    return render(request, 'blog/post_list.html', {})
+-include model pada blog/views.py
+from django.shortcuts import render
+from .models import Post
+
+# . (dot) artinya masih dalam 1 aplikasi yang sama
+
+-QuerySet di blog/views.py
+from django.shortcuts import render
+from django.utils import timezone
+from .models import Post
+
+def post_list(request):
+    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    return render(request, 'blog/post_list.html', {})
