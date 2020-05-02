@@ -96,3 +96,12 @@ git status
 b.simpan perubahan
 git add --all .
 git commit -m "My Django rizqiadiputra App, first commit"
+
+----
+a. django urls
+url merupakan alamat web, setiap halaman web membutuhkan alamat masing",django menggunakan URLconf untuk set pola url.
+menambahkan url blog:
+-buat file urls.py di blog
+-masuk ke urls di (site)/urls.py, lalu tambahkan function include, agar bisa mengimport blog.urls
+-sehingga menjadi from django.urls import path, include
+-tambahkan path('', include('blog.urls')), dibawah path('admin')
