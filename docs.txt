@@ -4,7 +4,9 @@ cd namafolder
 
 b.buat virtualenv
 mac: python3 -m venv env
-ubuntu: apt-get install python3-venv
+ubuntu:
+-apt install python3-venv
+-virtualenv --python=python3.6 myvenv
 
 c.aktifkan virtualenv
 source env/bin/activate
