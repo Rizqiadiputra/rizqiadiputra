@@ -239,3 +239,9 @@ html
 {% block content %}
 isi konten
 {% endblock %}
+
+f. detail content
+-buat template post detail = templates/blog/post_detail.html
+-buat function post detail di view
+-tambah url post detail
+-tambah link url detail post di button link url = templates/blog/daftar_post.html

@@ -6,7 +6,7 @@
             <div class="date">
                 <p>terbit: {{ post.tgl_terbit }}</p>
             </div>
-            <h2><a href="">{{ post.judul }}</a></h2>
+            <h2><a href="{% url 'detail_post' pk=post.pk %}">{{ post.judul }}</a></h2>
             <p>{{ post.isi|linebreaksbr }}</p>
         </div>
     {% endfor %}
