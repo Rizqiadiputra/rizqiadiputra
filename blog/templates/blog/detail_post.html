@@ -7,6 +7,7 @@
                 {{ post.tgl_terbit }}
             </div>
         {% endif %}
+        <a class="btn btn-default" href="{% url 'edit_post' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
         <h2>{{ post.judul }}</h2>
         <p>{{ post.isi|linebreaksbr }}</p>
     </div>

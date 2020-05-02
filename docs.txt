@@ -240,8 +240,17 @@ html
 isi konten
 {% endblock %}
 
-f. detail content
--buat template post detail = templates/blog/post_detail.html
+h. detail content
+-buat template post detail = templates/blog/detail_post.html
 -buat function post detail di view
 -tambah url post detail
 -tambah link url detail post di button link url = templates/blog/daftar_post.html
+
+j. django forms
+bisa buat post dan edit post melalui forms
+-buat forms.py di folder blog
+-buat template post edit = templates/blog/edit_post.html
+-buat function post edit di view
+-tambah url post edit
+-tambah link url edit post button di template/blog/base.html
+-save form

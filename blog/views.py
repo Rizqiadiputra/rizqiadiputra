@@ -1,6 +1,8 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Post
 from django.utils import timezone
+from .forms import FormPost
+
 
 # Create your views here.
 def daftar_post(request):
@@ -14,3 +16,30 @@ def daftar_post(request):
 def detail_post(request, pk):
     post = get_object_or_404(Post, pk=pk)
     return render(request, 'blog/detail_post.html', {'post':post})
+
+def baru_post(request):
+    if request.method == "POST":
+        form = FormPost(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.penulis = request.user
+            post.tgl_terbit = timezone.now()
+            post.save()
+            return redirect('detail_post', pk=post.pk)
+    else:
+        form = FormPost()
+    return render(request, 'blog/edit_post.html', {'form':form})
+
+def edit_post(request,pk):
+    post = get_object_or_404(Post, pk=pk)
+    if request.method == "POST":
+        form = FormPost(request.POST, instance=post)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.penulis = request.user
+            post.tgl_terbit = timezone.now()
+            post.save()
+            return redirect('detail_post', pk=post.pk)
+    else:
+        form = FormPost(instance=post)
+    return render(request, 'blog/edit_post.html', {'form':form})
