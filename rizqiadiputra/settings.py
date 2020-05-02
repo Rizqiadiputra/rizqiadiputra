@@ -91,7 +91,7 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'rizqiadiputra_prod'),
         'USER': root,
         'PASSWORD': 'Root_12345'
-        'HOST': 'localhost'
+        'HOST': '172.105.126.84'
         'PORT': '',
     }
 }
