@@ -90,8 +90,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': os.path.join(BASE_DIR, 'rizqiadiputra_prod'),
         'USER': root,
-        'PASSWORD': 'Root_12345'
-        'HOST': '172.105.126.84'
+        'PASSWORD': 'Root_12345',
+        'HOST': '172.105.126.84',
         'PORT': '',
     }
 }
