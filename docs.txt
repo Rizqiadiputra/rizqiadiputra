@@ -98,6 +98,23 @@ git add --all .
 git commit -m "My Django rizqiadiputra App, first commit"
 
 ----
+a.views
+sebuah view merupakan tempat kita menaruh logic aplikasi, view me-request informasi dari model yang telah kita buat dan akan di pass ke template
+-blog/views.py
+from django.shortcuts import render
+
+def daftar_post(request):
+	return render(request, 'blog/daftar_post.html', {})
+#def = fungsi
+#daftar_post = nama fungsi
+#request = melakukan request
+#return = mengembalikan value yang didapat dari pemanggilan fungsi lain
+#render = akan me render (mengambil bersama) di template kita
+
+b.template
+sebuah template merupakan file yang bisa digunakan untuk menampilkan informasi, django template menggunakan bahasa html
+
+
 a. django urls
 url merupakan alamat web, setiap halaman web membutuhkan alamat masing",django menggunakan URLconf untuk set pola url.
 menambahkan url blog:
@@ -105,3 +122,8 @@ menambahkan url blog:
 -masuk ke urls di (site)/urls.py, lalu tambahkan function include, agar bisa mengimport blog.urls
 -sehingga menjadi from django.urls import path, include
 -tambahkan path('', include('blog.urls')), dibawah path('admin')
+-'' artinya index utama, dan kita set ke url blog, maka akan muncul ke halaman blog
+-tambahkan ini di blog.urls
+from django.urls import path
+from . import views
+-
