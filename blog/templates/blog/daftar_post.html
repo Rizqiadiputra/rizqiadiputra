@@ -1,19 +1,14 @@
-<html>
-    <head>
-        <title>Blog Rizqi Adiputra</title>
-    </head>
-    <body>
-        <div>
-            <h1>Blog Rizqi Adiputra</h1>            
-        </div>
+{% extends 'blog/base.html' %}
 
-        {% for post in posts_ditemplate %}
-            <div>
+{% block content %}
+    {% for post in posts_ditemplate %}
+        <div class="post">
+            <div class="date">
                 <p>terbit: {{ post.tgl_terbit }}</p>
-                <h2><a href="">{{ post.judul }}</a></h2>
-                <p>{{ post.isi|linebreaksbr }}</p>
             </div>
-        {% endfor %}
-
-    </body>
-</html>
+            <h2><a href="">{{ post.judul }}</a></h2>
+            <p>{{ post.isi|linebreaksbr }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}
+              

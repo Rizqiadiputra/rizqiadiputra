@@ -207,3 +207,35 @@ from .models import Post
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     return render(request, 'blog/post_list.html', {})
+
+-blog/daftar_post.html
+        {% for post in posts_ditemplate %}
+            <div>
+                <p>terbit: {{ post.tgl_terbit }}</p>
+                <h2><a href="">{{ post.judul }}</a></h2>
+                <p>{{ post.isi|linebreaksbr }}</p>
+            </div>
+        {% endfor %}
+
+f. static files in django
+-buat folder static di dalam blog
+-blog/static/css/blog.css
+-tambahkan {% load static %} diatas kode html pada template
+
+g.template extending
+kita dapat menggunakan sebuah bagian html yang sama untuk digunakan di beberapa halaman html yang berbeda
+-create sebuah base html
+base html merupakan template dasar yang dapat di extend diberbagai page website kita
+-tulis di base.html
+{% load static %}
+html
+body
+{% block content %}
+{% endblock %}
+body
+html
+-tulis di page lain
+{% extends 'blog/base.html' %}
+{% block content %}
+isi konten
+{% endblock %}
