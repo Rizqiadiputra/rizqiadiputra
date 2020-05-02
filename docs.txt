@@ -3,7 +3,8 @@ mkdir namafolder
 cd namafolder
 
 b.buat virtualenv
-python3 -m venv env
+mac: python3 -m venv env
+ubuntu: apt-get install python3-venv
 
 c.aktifkan virtualenv
 source env/bin/activate
