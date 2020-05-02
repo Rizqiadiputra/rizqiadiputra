@@ -254,3 +254,9 @@ bisa buat post dan edit post melalui forms
 -tambah url post edit
 -tambah link url edit post button di template/blog/base.html
 -save form
+
+k. security
+hanya user yang punya akun dan login yang bisa buat post data
+-tambahkan 
+{% if user.is_authenticated %}
+{% endif %}
