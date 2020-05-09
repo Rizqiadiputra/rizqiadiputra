@@ -94,8 +94,8 @@ DATABASES = {
         'USER': 'putra',
         'PASSWORD': 'Root_12345',
         'HOST': '172.105.126.84',
-        # 'PORT': '5432',
-        'PORT': '',
+        'PORT': '5432',
+        # 'PORT': '',
     }
 }
 
