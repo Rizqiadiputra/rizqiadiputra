@@ -87,7 +87,8 @@ WSGI_APPLICATION = 'rizqiadiputra.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        # 'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql',
         # 'NAME': os.path.join(BASE_DIR, 'rizqiadiputra_prod'),
         # 'NAME': os.path.join(BASE_DIR, 'rizqiadiputra_prod'),
         'NAME': 'rizqiadiputra_prod',
