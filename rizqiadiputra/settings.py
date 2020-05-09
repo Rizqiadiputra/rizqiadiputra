@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '9e0#5%2^@m*f(1_jd=f2rn93^%u0b+
 DEBUG = False
 
 #host name
-ALLOWED_HOSTS = ['*','172.105.126.84']
+ALLOWED_HOSTS = ['*','172.105.126.84','rizqiadiputra.com']
 # ALLOWED_HOSTS = ['127.0.0.1','172.105.126.84']
 
 
@@ -88,12 +88,14 @@ WSGI_APPLICATION = 'rizqiadiputra.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.path.join(BASE_DIR, 'rizqiadiputra_prod'),
         # 'NAME': os.path.join(BASE_DIR, 'rizqiadiputra_prod'),
+        # 'NAME': os.path.join(BASE_DIR, 'rizqiadiputra_prod'),
+        'NAME': 'rizqiadiputra_prod',
         'USER': 'putra',
         'PASSWORD': 'Root_12345',
         'HOST': '172.105.126.84',
-        'PORT': '5432',
+        # 'PORT': '5432',
+        'PORT': '',
     }
 }
 
