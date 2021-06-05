@@ -1,6 +1,9 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+# from django.http import HttpResponse
 
 # Create your views here.
-def index(request):
-    return HttpResponse("Kamu di Index")
+# def index(request):
+#     return HttpResponse("Kamu di Index")
+
+def home(request):
+    return render(request,'cv/index.html',{})
