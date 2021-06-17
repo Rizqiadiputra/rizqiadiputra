@@ -1,4 +1,5 @@
 from django.shortcuts import render
+
 # from django.http import HttpResponse
 
 # Create your views here.
@@ -7,3 +8,12 @@ from django.shortcuts import render
 
 def home(request):
     return render(request,'cv/index.html',{})
+
+def about(request):
+    return render(request, 'cv/about.html',{})
+
+def services(request):
+    return render(request,'cv/services.html',{})
+
+def portfolio(request):
+    return render(request,'blog/daftar_post.html',{})
