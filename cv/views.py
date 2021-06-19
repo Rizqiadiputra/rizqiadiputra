@@ -1,4 +1,5 @@
 from django.shortcuts import render
+# from blog
 
 # from django.http import HttpResponse
 
@@ -15,5 +16,8 @@ def about(request):
 def services(request):
     return render(request,'cv/services.html',{})
 
-def portfolio(request):
-    return render(request,'blog/daftar_post.html',{})
+# def portfolio(request):
+#     return render(request,'blog/daftar_post.html',{})
+
+def blog(request):
+    return render(request,'cv/blog.html',{})

@@ -1,6 +1,8 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
+<a href="{% url 'baru_post' %}"><span class="glyphicon glyphicon-plus"></span>Tambah Post</a>
+
     {% for post in posts_ditemplate %}
         <div class="post">
             <div class="date">
